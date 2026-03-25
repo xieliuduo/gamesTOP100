@@ -168,6 +168,36 @@ body {
   box-shadow: 0 8px 28px var(--shadow);
   border-color: var(--accent);
 }
+/* Game Screenshot */
+.game-img-wrap {
+  width: 100%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--bg3);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.game-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity .35s;
+  position: relative;
+  z-index: 1;
+}
+.game-img.loaded { opacity: 1; }
+.game-img-ph {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  opacity: .2;
+}
 .card-header {
   display: flex;
   justify-content: space-between;
@@ -317,6 +347,37 @@ mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px;
 </footer>
 
 <script>
+// ——— MAME ROM → ADB 截图映射 ———
+const ROM_MAP = {
+  1:'sf2ce',   2:'sf2ce',   3:'ssf2t',   4:'kof97',   5:'ssf2',
+  6:'kof98',   7:'sf2hf',   8:'kof97',   9:'kof97',   10:'sf2',
+  11:'kof97',  12:'sf2',    13:'ssf2',   14:'sf2ce',  15:'sf2ce',
+  16:'sf2',    17:'sf2ce',  18:'sf2ce',  19:'kof2002', 20:'kof2002',
+  21:'kof2002b',22:'kof2002',23:'dino',  24:'kof2002', 25:'kof2002',
+  26:'dino',   27:'kof2002',28:'contra', 29:'suprcontra',30:'contra',
+  31:'contra', 32:'contra', 33:'contra', 34:'contra',  35:'contra',
+  36:'suprcontra',37:'wof', 38:'wof',    39:'orld105k', 40:'contra',
+  41:'orld111c',42:'contra',43:'ffight', 44:'contra',  45:'wof',
+  46:'wof',    47:'contra', 48:'orldgs', 49:'wof',     50:'suprcontra',
+  51:'orld',   52:'wof',    53:'contra', 54:'wof',     55:'wof',
+  56:'wof',    57:'wof',    58:'ffight', 59:'orld112c', 60:'wof',
+  61:'wof',    62:'wof',    63:'wof',    64:'ffight',  65:'orld2k',
+  66:'garou',  67:'fatfury1',68:'ffight',69:'wof',     70:'wof',
+  71:'fatfury1',72:'wof',   73:'wof',    74:'jackal',  75:'wof',
+  76:'samsho2',77:'samsho4',78:'wof',    79:'wof',     80:'fatfury2',
+  81:'fatfury1',82:'fatfury2',83:'samsho',84:'knights', 85:'fatfursp',
+  86:'samsho', 87:'knights',88:'samsh5sp',89:'fatfury1',90:'samsho2',
+  91:'fatfury2',92:'samsho',93:'samsho3',94:'bublbobl',95:'bublbobl',
+  96:'mbombjck',97:'puzzbobble',98:'neobombe',99:'neobombe',100:'bublbobl'
+};
+
+function catEmoji(cat) {
+  return {
+    '格斗游戏':'🥊','射击游戏':'🚀','动作冒险':'⚔️',
+    '平台跳跃':'🦘','益智游戏':'🧩','体育游戏':'⚽','其他游戏':'🕹️'
+  }[cat] || '🎮';
+}
+
 // ——— 工具函数 ———
 function stars(score) {
   const full = Math.round(score / 20);
@@ -388,6 +449,10 @@ function render() {
     <div class="card-tags">
       <span class="${tc}">${g.category}</span>
     </div>
+  </div>
+  <div class="game-img-wrap">
+    <div class="game-img-ph">${catEmoji(g.category)}</div>
+    ${ROM_MAP[g.rank] ? `<img class="game-img" src="https://adb.arcadeitalia.net/media/mame.current/ingames/${ROM_MAP[g.rank]}.png" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">` : ''}
   </div>
   <div class="game-zh">${zhH}</div>
   <div class="game-en" title="${g.en}">${enH}</div>
