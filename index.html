@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>经典街机游戏精选 TOP 100</title>
+<script src="games-data.js"></script>
+<style>
+:root {
+  --bg: #0d0d1a;
+  --bg2: #12122a;
+  --bg3: #1a1a35;
+  --card: #1e1e3a;
+  --accent: #7c4dff;
+  --accent2: #ff4081;
+  --accent3: #00e5ff;
+  --gold: #ffd740;
+  --text: #e8eaf6;
+  --text2: #9e9ec8;
+  --border: #2a2a55;
+  --shadow: rgba(124,77,255,.2);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #0d0d2e 0%, #1a0a3d 40%, #0a1a3d 100%);
+  padding: 40px 20px 28px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(124,77,255,.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(0,229,255,.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-title {
+  font-size: clamp(22px, 5vw, 46px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--accent3), #fff, var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+.hero-sub {
+  color: rgba(255,255,255,.6);
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+.hero-stats {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,.85);
+}
+.stat-chip span { color: var(--gold); font-weight: 700; }
+
+/* Controls */
+.controls {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(14px);
+}
+.ctrl-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.search-wrap { position: relative; flex: 1; min-width: 200px; }
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text2);
+  font-size: 13px;
+  pointer-events: none;
+}
+#searchInput {
+  width: 100%;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 8px 12px 8px 32px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+#searchInput:focus { border-color: var(--accent); }
+#searchInput::placeholder { color: var(--text2); }
+.filter-group { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.filter-label { color: var(--text2); font-size: 12px; white-space: nowrap; }
+.filter-btn {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 5px 12px;
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.filter-btn:hover { border-color: var(--accent); color: var(--text); }
+.filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.result-info {
+  color: var(--text2);
+  font-size: 12px;
+  text-align: right;
+}
+.result-info span { color: var(--accent3); font-weight: 600; }
+
+/* Grid */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  transition: all .22s;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px var(--shadow);
+  border-color: var(--accent);
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 8px;
+}
+.rank-badge {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+}
+.rank-1 { background: linear-gradient(135deg, #ffd740, #ff8f00); color: #000; }
+.rank-2 { background: linear-gradient(135deg, #b0bec5, #78909c); color: #000; }
+.rank-3 { background: linear-gradient(135deg, #ff8a65, #e64a19); color: #fff; }
+.rank-other { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
+.card-tags { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.tag {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+.tag-格斗游戏  { background: rgba(255,64,129,.13);  color: #ff4081; border: 1px solid rgba(255,64,129,.28); }
+.tag-射击游戏  { background: rgba(0,229,255,.1);    color: #00e5ff; border: 1px solid rgba(0,229,255,.22); }
+.tag-动作冒险  { background: rgba(105,240,174,.1);  color: #69f0ae; border: 1px solid rgba(105,240,174,.22); }
+.tag-平台跳跃  { background: rgba(255,215,64,.1);   color: #ffd740; border: 1px solid rgba(255,215,64,.22); }
+.tag-赛车游戏  { background: rgba(255,138,101,.13); color: #ff8a65; border: 1px solid rgba(255,138,101,.28); }
+.tag-益智游戏  { background: rgba(124,77,255,.13);  color: #b388ff; border: 1px solid rgba(124,77,255,.28); }
+.tag-体育游戏  { background: rgba(64,196,255,.1);   color: #40c4ff; border: 1px solid rgba(64,196,255,.22); }
+.tag-other     { background: rgba(0,0,0,.06);        color: var(--text2); border: 1px solid var(--border); }
+.game-zh { font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
+.game-en { font-size: 10px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px; }
+.game-meta { font-size: 10px; color: var(--text2); display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+.game-meta .year { color: var(--accent3); }
+.score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.score-big {
+  font-size: 30px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--gold), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.score-label { font-size: 11px; color: var(--text2); line-height: 1.5; }
+.stars { color: var(--gold); font-size: 11px; }
+.badges { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
+.badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 9px;
+  font-weight: 600;
+}
+.badge-简单   { background: rgba(105,240,174,.12); color: #69f0ae; border: 1px solid rgba(105,240,174,.25); }
+.badge-中等   { background: rgba(255,215,64,.12);  color: #ffd740; border: 1px solid rgba(255,215,64,.25); }
+.badge-复杂   { background: rgba(255,64,129,.13);  color: #ff4081; border: 1px solid rgba(255,64,129,.28); }
+.badge-单人   { background: rgba(0,229,255,.1);    color: #00e5ff; border: 1px solid rgba(0,229,255,.22); }
+.badge-双人对战 { background: rgba(255,64,129,.12); color: #ff4081; border: 1px solid rgba(255,64,129,.25); }
+.badge-双人合作 { background: rgba(105,240,174,.1); color: #69f0ae; border: 1px solid rgba(105,240,174,.22); }
+.badge-多人   { background: rgba(255,215,64,.11);  color: #ffd740; border: 1px solid rgba(255,215,64,.22); }
+.bars { display: flex; flex-direction: column; gap: 5px; }
+.bar-row { display: flex; align-items: center; gap: 6px; }
+.bar-label { font-size: 11px; color: var(--text2); width: 36px; flex-shrink: 0; }
+.bar-track { flex: 1; height: 4px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width .4s; }
+.bar-pop  { background: linear-gradient(90deg, #00e5ff, #0091ea); }
+.bar-cls  { background: linear-gradient(90deg, #ffd740, #ff8f00); }
+.bar-rec  { background: linear-gradient(90deg, #69f0ae, #00bfa5); }
+.bar-val  { font-size: 10px; font-weight: 700; width: 22px; text-align: right; flex-shrink: 0; }
+
+/* No results */
+.no-results { text-align: center; padding: 80px 20px; color: var(--text2); }
+.no-results .icon { font-size: 48px; margin-bottom: 12px; }
+.no-results h3 { font-size: 18px; color: var(--text); margin-bottom: 6px; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px;
+  color: var(--text2);
+  font-size: 11px;
+  border-top: 1px solid var(--border);
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px; padding: 0 2px; }
+
+@media (max-width: 600px) {
+  #grid { grid-template-columns: 1fr; }
+  .ctrl-inner { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-title">🕹️ 经典街机游戏精选 TOP 100</div>
+  <div class="hero-sub">Classic Arcade Games · 数据来源：MAME catver.ini · Arcade Database · games-data.js</div>
+  <div class="hero-stats">
+    <div class="stat-chip">精选 <span>100</span> 款</div>
+    <div class="stat-chip">✅ 均为真实数据</div>
+    <div class="stat-chip">📅 年代跨度 <span>1987–2002</span></div>
+    <div class="stat-chip">🗂️ 数据文件 <span>games-data.js</span></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="ctrl-inner">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="搜索游戏名称（中文 / English 均可）…" autocomplete="off" oninput="render()">
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">分类：</span>
+      <button class="filter-btn active" data-cat="">全部</button>
+      <button class="filter-btn" data-cat="格斗游戏">🥊 格斗</button>
+      <button class="filter-btn" data-cat="射击游戏">🚀 射击</button>
+      <button class="filter-btn" data-cat="动作冒险">⚔️ 动作</button>
+      <button class="filter-btn" data-cat="平台跳跃">🦘 跳跃</button>
+      <button class="filter-btn" data-cat="益智游戏">🧩 益智</button>
+      <button class="filter-btn" data-cat="体育游戏">⚽ 体育</button>
+    </div>
+    <div class="result-info">显示 <span id="showCount">0</span> / <span id="totalCount">100</span> 款</div>
+  </div>
+</div>
+
+<div class="main">
+  <div id="grid"></div>
+  <div id="noResults" class="no-results" style="display:none">
+    <div class="icon">🔭</div>
+    <h3>没有找到匹配的游戏</h3>
+    <p>试试其他关键词或清除筛选条件</p>
+  </div>
+</div>
+
+<footer>
+  数据来源：Arcade Database (ADB) · MAME nplayers.ini · catver.ini<br>
+  外部数据文件：<code>games-data.js</code> · 精选 TOP 100 街机经典
+</footer>
+
+<script>
+// ——— 工具函数 ———
+function stars(score) {
+  const full = Math.round(score / 20);
+  return '★'.repeat(full) + '☆'.repeat(5 - full);
+}
+
+function rankClass(r) {
+  if (r === 1) return 'rank-1';
+  if (r === 2) return 'rank-2';
+  if (r === 3) return 'rank-3';
+  return 'rank-other';
+}
+
+function tagClass(cat) {
+  const known = ['格斗游戏','射击游戏','动作冒险','平台跳跃','赛车游戏','益智游戏','体育游戏'];
+  return 'tag ' + (known.includes(cat) ? 'tag-' + cat : 'tag-other');
+}
+
+function highlight(text, q) {
+  if (!q) return text;
+  const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+  return text.replace(re, m => '<mark>' + m + '</mark>');
+}
+
+// ——— 状态 ———
+let currentCat = '';
+
+// ——— 筛选按钮 ———
+document.querySelectorAll('.filter-btn[data-cat]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    render();
+  });
+});
+
+// ——— 渲染 ———
+function render() {
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  const grid = document.getElementById('grid');
+  const noResults = document.getElementById('noResults');
+
+  const filtered = GAMES.filter(g => {
+    const matchCat = !currentCat || g.category === currentCat;
+    const matchQ   = !q || g.zh.toLowerCase().includes(q) || g.en.toLowerCase().includes(q);
+    return matchCat && matchQ;
+  });
+
+  document.getElementById('showCount').textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    noResults.style.display = 'block';
+    return;
+  }
+  noResults.style.display = 'none';
+
+  grid.innerHTML = filtered.map(g => {
+    const rc = rankClass(g.rank);
+    const tc = tagClass(g.category);
+    const zhH = highlight(g.zh, q);
+    const enH = highlight(g.en, q);
+
+    return `
+<div class="card">
+  <div class="card-header">
+    <div class="rank-badge ${rc}">${g.rank}</div>
+    <div class="card-tags">
+      <span class="${tc}">${g.category}</span>
+    </div>
+  </div>
+  <div class="game-zh">${zhH}</div>
+  <div class="game-en" title="${g.en}">${enH}</div>
+  <div class="game-meta">
+    ${g.year ? `<span class="year">📅 ${g.year}</span>` : ''}
+    ${g.manufacturer ? `<span>${g.manufacturer}</span>` : ''}
+  </div>
+  <div class="score-row">
+    <div>
+      <div class="score-big">${g.fun_score.toFixed(1)}</div>
+      <div class="stars">${stars(g.fun_score)}</div>
+    </div>
+    <div class="score-label">综合<br>好玩度</div>
+  </div>
+  <div class="badges">
+    <span class="badge badge-${g.complexity}">${g.complexity}</span>
+    <span class="badge badge-${g.players}">${g.players}</span>
+  </div>
+  <div class="bars">
+    <div class="bar-row">
+      <span class="bar-label">流行</span>
+      <div class="bar-track"><div class="bar-fill bar-pop" style="width:${g.popularity}%"></div></div>
+      <span class="bar-val" style="color:#00e5ff">${g.popularity}</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">经典</span>
+      <div class="bar-track"><div class="bar-fill bar-cls" style="width:${g.classic}%"></div></div>
+      <span class="bar-val" style="color:#ffd740">${g.classic}</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">推荐</span>
+      <div class="bar-track"><div class="bar-fill bar-rec" style="width:${g.recommendation}%"></div></div>
+      <span class="bar-val" style="color:#69f0ae">${g.recommendation}</span>
+    </div>
+  </div>
+</div>`;
+  }).join('');
+}
+
+// ——— 初始化 ———
+render();
+</script>
+</body>
+</html>
