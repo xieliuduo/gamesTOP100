@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>经典街机游戏精选 TOP 100</title>
+<title>经典街机游戏 · 真实数据精选 1135款</title>
 <script src="games-data.js"></script>
 <style>
 :root {
@@ -227,14 +227,17 @@ body {
   border-radius: 10px;
   font-weight: 600;
 }
-.tag-格斗游戏  { background: rgba(255,64,129,.13);  color: #ff4081; border: 1px solid rgba(255,64,129,.28); }
-.tag-射击游戏  { background: rgba(0,229,255,.1);    color: #00e5ff; border: 1px solid rgba(0,229,255,.22); }
-.tag-动作冒险  { background: rgba(105,240,174,.1);  color: #69f0ae; border: 1px solid rgba(105,240,174,.22); }
-.tag-平台跳跃  { background: rgba(255,215,64,.1);   color: #ffd740; border: 1px solid rgba(255,215,64,.22); }
-.tag-赛车游戏  { background: rgba(255,138,101,.13); color: #ff8a65; border: 1px solid rgba(255,138,101,.28); }
-.tag-益智游戏  { background: rgba(124,77,255,.13);  color: #b388ff; border: 1px solid rgba(124,77,255,.28); }
-.tag-体育游戏  { background: rgba(64,196,255,.1);   color: #40c4ff; border: 1px solid rgba(64,196,255,.22); }
-.tag-other     { background: rgba(0,0,0,.06);        color: var(--text2); border: 1px solid var(--border); }
+/* 分类标签使用 cc 字段 c0–c9 */
+.tag-c0 { background: rgba(255,64,129,.13);  color: #ff4081; border: 1px solid rgba(255,64,129,.28); }   /* 格斗 */
+.tag-c1 { background: rgba(0,229,255,.1);    color: #00e5ff; border: 1px solid rgba(0,229,255,.22); }    /* 射击 */
+.tag-c2 { background: rgba(105,240,174,.1);  color: #69f0ae; border: 1px solid rgba(105,240,174,.22); }  /* 动作 */
+.tag-c3 { background: rgba(255,215,64,.1);   color: #ffd740; border: 1px solid rgba(255,215,64,.22); }   /* 平台 */
+.tag-c4 { background: rgba(255,138,101,.13); color: #ff8a65; border: 1px solid rgba(255,138,101,.28); }  /* 赛车 */
+.tag-c5 { background: rgba(124,77,255,.13);  color: #b388ff; border: 1px solid rgba(124,77,255,.28); }   /* 益智 */
+.tag-c6 { background: rgba(64,196,255,.1);   color: #40c4ff; border: 1px solid rgba(64,196,255,.22); }   /* 体育 */
+.tag-c7 { background: rgba(206,147,216,.12); color: #ce93d8; border: 1px solid rgba(206,147,216,.28); }  /* 弹幕 */
+.tag-c8 { background: rgba(128,203,196,.12); color: #80cbc4; border: 1px solid rgba(128,203,196,.28); }  /* 驾驶 */
+.tag-c9 { background: rgba(0,0,0,.06);       color: var(--text2); border: 1px solid var(--border); }     /* 其他 */
 .game-zh { font-size: 16px; font-weight: 700; line-height: 1.3; margin-bottom: 2px; }
 .game-en { font-size: 10px; color: var(--text2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px; }
 .game-meta { font-size: 10px; color: var(--text2); display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
@@ -293,6 +296,22 @@ footer {
 
 mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px; padding: 0 2px; }
 
+/* ——— 分页 ——— */
+.pagination {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 24px 0 8px; flex-wrap: wrap;
+}
+.pg-btn {
+  min-width: 34px; height: 34px; padding: 0 10px;
+  border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg3); color: var(--text2);
+  cursor: pointer; font-size: 13px; font-family: inherit;
+  transition: all .15s; display: flex; align-items: center; justify-content: center;
+}
+.pg-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--text); }
+.pg-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.pg-btn:disabled { opacity: .35; cursor: default; }
+.pg-ellipsis { color: var(--text2); padding: 0 4px; }
 /* ——— 多维筛选面板 ——— */
 .filter-panel { display: flex; flex-direction: column; gap: 6px; }
 .filter-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
@@ -348,12 +367,12 @@ mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px;
 <body>
 
 <div class="hero">
-  <div class="hero-title">🕹️ 经典街机游戏精选 TOP 100</div>
-  <div class="hero-sub">Classic Arcade Games · 数据来源：MAME catver.ini · Arcade Database · games-data.js</div>
+  <div class="hero-title">🕹️ 经典街机游戏 · 真实数据精选</div>
+  <div class="hero-sub">Classic Arcade Games · 数据来源：Arcade Database (ADB) · MAME nplayers.ini · catver.ini</div>
   <div class="hero-stats">
-    <div class="stat-chip">精选 <span>100</span> 款</div>
-    <div class="stat-chip">✅ 均为真实数据</div>
-    <div class="stat-chip">📅 年代跨度 <span>1987–2002</span></div>
+    <div class="stat-chip">✅ 真实数据 <span>1135</span> 款</div>
+    <div class="stat-chip">📅 年代跨度 <span>1976–2008</span></div>
+    <div class="stat-chip">🏭 覆盖厂商 <span>50+</span></div>
     <div class="stat-chip">🗂️ 数据文件 <span>games-data.js</span></div>
   </div>
 </div>
@@ -373,6 +392,9 @@ mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px;
         <button class="filter-chip" data-dim="cat" data-val="动作冒险">⚔️ 动作</button>
         <button class="filter-chip" data-dim="cat" data-val="平台跳跃">🦘 跳跃</button>
         <button class="filter-chip" data-dim="cat" data-val="益智游戏">🧩 益智</button>
+        <button class="filter-chip" data-dim="cat" data-val="体育游戏">⚽ 体育</button>
+        <button class="filter-chip" data-dim="cat" data-val="赛车游戏">🚗 赛车</button>
+        <button class="filter-chip" data-dim="cat" data-val="弹珠/弹幕">🎯 弹幕</button>
         <button class="filter-chip" data-dim="cat" data-val="其他游戏">🕹️ 其他</button>
       </div>
       <div class="filter-row">
@@ -394,20 +416,19 @@ mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px;
         <button class="filter-chip" data-dim="mfr" data-val="Capcom">Capcom</button>
         <button class="filter-chip" data-dim="mfr" data-val="SNK">SNK</button>
         <button class="filter-chip" data-dim="mfr" data-val="Konami">Konami</button>
-        <button class="filter-chip" data-dim="mfr" data-val="IGS">IGS</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Namco">Namco</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Sega">Sega</button>
         <button class="filter-chip" data-dim="mfr" data-val="Taito">Taito</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Data East">Data East</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Irem">Irem</button>
         <span class="filter-dim-label" style="margin-left:12px">存档</span>
         <button class="filter-chip active" data-dim="saveable" data-val="">全部</button>
         <button class="filter-chip" data-dim="saveable" data-val="支持存档">💾 支持</button>
         <button class="filter-chip" data-dim="saveable" data-val="不支持存档">✗ 不支持</button>
-        <span class="filter-dim-label" style="margin-left:12px">数据</span>
-        <button class="filter-chip active" data-dim="dataSrc" data-val="">全部</button>
-        <button class="filter-chip" data-dim="dataSrc" data-val="真实数据">✅ 真实</button>
-        <button class="filter-chip" data-dim="dataSrc" data-val="估算数据">📊 估算</button>
         <button class="reset-all-btn" onclick="resetFilters()">↺ 重置筛选</button>
       </div>
     </div>
-    <div class="result-info">显示 <span id="showCount">0</span> / <span id="totalCount">100</span> 款</div>
+    <div class="result-info">第 <span id="pageInfo">1</span> 页 · 显示 <span id="showCount">0</span> / <span id="totalCount">1135</span> 款</div>
   </div>
 </div>
 
@@ -418,6 +439,7 @@ mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px;
     <h3>没有找到匹配的游戏</h3>
     <p>试试其他关键词或清除筛选条件</p>
   </div>
+  <div id="pagination" class="pagination"></div>
 </div>
 
 <footer>
@@ -463,9 +485,8 @@ function stars(score) {
 function rankClass(r) {
   return r === 1 ? 'rank-1' : r === 2 ? 'rank-2' : r === 3 ? 'rank-3' : 'rank-other';
 }
-function tagClass(cat) {
-  const known = ['格斗游戏','射击游戏','动作冒险','平台跳跃','赛车游戏','益智游戏','体育游戏'];
-  return 'tag ' + (known.includes(cat) ? 'tag-' + cat : 'tag-other');
+function tagClass(g) {
+  return 'tag tag-' + (g.cc || 'c9');
 }
 function highlight(text, q) {
   if (!q) return text;
@@ -485,17 +506,35 @@ function mfrShort(mfr) {
   return mfr.split('/')[0].trim();
 }
 
-// ——— 多维筛选状态 ———
-const F = { cat:'', complexity:'', players:'', mfr:'', saveable:'', dataSrc:'' };
+// ——— 动态 ROM 猜测（ADB 截图备用）———
+function guessRom(en) {
+  const base = en.replace(/[（(].*/,'').trim()   // 取括号前
+    .replace(/['\-\s·]+/g,'').toLowerCase()       // 去标点空格
+    .replace(/[^a-z0-9]/g,'');                    // 只保留字母数字
+  return base.slice(0, 20) || null;
+}
+function getImgSrc(g) {
+  const known = ROM_MAP[g.rank];
+  if (known) return known;
+  return guessRom(g.en);
+}
 
-// ——— 筛选芯片点击（统一处理所有维度）———
+// ——— 多维筛选状态 ———
+const F = { cat:'', complexity:'', players:'', mfr:'', saveable:'' };
+
+// ——— 分页状态 ———
+const PAGE_SIZE = 48;
+let currentPage = 1;
+let lastFiltered = [];
+
+// ——— 筛选芯片点击 ———
 document.querySelectorAll('.filter-chip[data-dim]').forEach(btn => {
   btn.addEventListener('click', () => {
     const dim = btn.dataset.dim;
-    // 同一维度：取消激活其他，激活当前
     document.querySelectorAll(`.filter-chip[data-dim="${dim}"]`).forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     F[dim] = btn.dataset.val;
+    currentPage = 1;
     render();
   });
 });
@@ -505,6 +544,7 @@ function resetFilters() {
   document.querySelectorAll('.filter-chip[data-dim]').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.val === '');
   });
+  currentPage = 1;
   render();
 }
 
@@ -514,36 +554,43 @@ function render() {
   const grid = document.getElementById('grid');
   const noResults = document.getElementById('noResults');
 
-  const filtered = GAMES.filter(g => {
+  lastFiltered = GAMES.filter(g => {
     if (F.cat && g.category !== F.cat) return false;
     if (F.complexity && g.complexity !== F.complexity) return false;
     if (F.players && g.players !== F.players) return false;
     if (F.saveable && g.saveable !== F.saveable) return false;
-    if (F.dataSrc && g.data_src !== F.dataSrc) return false;
     if (F.mfr) {
-      const m = g.manufacturer || '';
-      if (!m.toLowerCase().includes(F.mfr.toLowerCase())) return false;
+      if (!(g.manufacturer || '').toLowerCase().includes(F.mfr.toLowerCase())) return false;
     }
     if (q && !g.zh.toLowerCase().includes(q) && !g.en.toLowerCase().includes(q)) return false;
     return true;
   });
 
-  document.getElementById('showCount').textContent = filtered.length;
+  const total = lastFiltered.length;
+  const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+  if (currentPage > totalPages) currentPage = totalPages;
 
-  if (filtered.length === 0) {
+  document.getElementById('showCount').textContent = total;
+  document.getElementById('totalCount').textContent = GAMES.length;
+  document.getElementById('pageInfo').textContent = `${currentPage} / ${totalPages}`;
+
+  if (total === 0) {
     grid.innerHTML = '';
     noResults.style.display = 'block';
+    document.getElementById('pagination').innerHTML = '';
     return;
   }
   noResults.style.display = 'none';
 
-  grid.innerHTML = filtered.map(g => {
+  const page = lastFiltered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  grid.innerHTML = page.map(g => {
     const rc = rankClass(g.rank);
-    const tc = tagClass(g.category);
+    const tc = tagClass(g);
     const zhH = highlight(g.zh, q);
     const enH = highlight(g.en, q);
-    const isReal = g.data_src === '真实数据';
     const ms = mfrShort(g.manufacturer);
+    const rom = getImgSrc(g);
 
     return `
 <div class="card">
@@ -555,7 +602,7 @@ function render() {
   </div>
   <div class="game-img-wrap">
     <div class="game-img-ph">${catEmoji(g.category)}</div>
-    ${ROM_MAP[g.rank] ? `<img class="game-img" src="https://adb.arcadeitalia.net/media/mame.current/ingames/${ROM_MAP[g.rank]}.png" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">` : ''}
+    ${rom ? `<img class="game-img" src="https://adb.arcadeitalia.net/media/mame.current/ingames/${rom}.png" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">` : ''}
   </div>
   <div class="game-zh">${zhH}</div>
   <div class="game-en" title="${g.en}">${enH}</div>
@@ -564,7 +611,6 @@ function render() {
     ${g.manufacturer ? `<span>${g.manufacturer}</span>` : ''}
   </div>
   <div class="card-data-tags">
-    <span class="dtag ${isReal ? 'dtag-real' : 'dtag-est'}">${isReal ? '✅ 真实数据' : '📊 估算数据'}</span>
     ${g.saveable === '支持存档' ? '<span class="dtag dtag-save">💾 支持存档</span>' : ''}
     ${ms ? `<span class="dtag dtag-mfr">${ms}</span>` : ''}
   </div>
@@ -598,6 +644,111 @@ function render() {
   </div>
 </div>`;
   }).join('');
+
+  renderPagination(totalPages);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderPagination(totalPages) {
+  const pg = document.getElementById('pagination');
+  if (totalPages <= 1) { pg.innerHTML = ''; return; }
+
+  const btn = (label, page, active = false, disabled = false) =>
+    `<button class="pg-btn${active ? ' active' : ''}" ${disabled ? 'disabled' : ''}
+      onclick="goPage(${page})">${label}</button>`;
+
+  const ellipsis = '<span class="pg-ellipsis">…</span>';
+  let html = btn('«', 1, false, currentPage === 1)
+           + btn('‹', currentPage - 1, false, currentPage === 1);
+
+  // page numbers with ellipsis
+  const range = (a, b) => Array.from({length: b - a + 1}, (_, i) => a + i);
+  let pages;
+  if (totalPages <= 9) {
+    pages = range(1, totalPages);
+  } else if (currentPage <= 5) {
+    pages = [...range(1, 6), null, totalPages];
+  } else if (currentPage >= totalPages - 4) {
+    pages = [1, null, ...range(totalPages - 5, totalPages)];
+  } else {
+    pages = [1, null, ...range(currentPage - 2, currentPage + 2), null, totalPages];
+  }
+
+  pages.forEach(p => {
+    html += p === null ? ellipsis : btn(p, p, p === currentPage);
+  });
+
+  html += btn('›', currentPage + 1, false, currentPage === totalPages)
+        + btn('»', totalPages, false, currentPage === totalPages);
+  pg.innerHTML = html;
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(lastFiltered.length / PAGE_SIZE);
+  currentPage = Math.max(1, Math.min(p, totalPages));
+  const page = lastFiltered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  document.getElementById('pageInfo').textContent = `${currentPage} / ${totalPages}`;
+  document.getElementById('grid').innerHTML = page.map(g => {
+    const rc = rankClass(g.rank);
+    const tc = tagClass(g);
+    const zhH = highlight(g.zh, q);
+    const enH = highlight(g.en, q);
+    const ms = mfrShort(g.manufacturer);
+    const rom = getImgSrc(g);
+    return `
+<div class="card">
+  <div class="card-header">
+    <div class="rank-badge ${rc}">${g.rank}</div>
+    <div class="card-tags"><span class="${tc}">${g.category}</span></div>
+  </div>
+  <div class="game-img-wrap">
+    <div class="game-img-ph">${catEmoji(g.category)}</div>
+    ${rom ? `<img class="game-img" src="https://adb.arcadeitalia.net/media/mame.current/ingames/${rom}.png" loading="lazy" onload="this.classList.add('loaded')" onerror="this.remove()">` : ''}
+  </div>
+  <div class="game-zh">${zhH}</div>
+  <div class="game-en" title="${g.en}">${enH}</div>
+  <div class="game-meta">
+    ${g.year ? `<span class="year">📅 ${g.year}</span>` : ''}
+    ${g.manufacturer ? `<span>${g.manufacturer}</span>` : ''}
+  </div>
+  <div class="card-data-tags">
+    ${g.saveable === '支持存档' ? '<span class="dtag dtag-save">💾 支持存档</span>' : ''}
+    ${ms ? `<span class="dtag dtag-mfr">${ms}</span>` : ''}
+  </div>
+  <div class="score-row">
+    <div>
+      <div class="score-big">${g.fun_score.toFixed(1)}</div>
+      <div class="stars">${stars(g.fun_score)}</div>
+    </div>
+    <div class="score-label">综合<br>好玩度</div>
+  </div>
+  <div class="badges">
+    <span class="badge badge-${g.complexity}">${g.complexity}</span>
+    <span class="badge badge-${g.players}">${g.players}</span>
+  </div>
+  <div class="bars">
+    <div class="bar-row">
+      <span class="bar-label">流行</span>
+      <div class="bar-track"><div class="bar-fill bar-pop" style="width:${g.popularity}%"></div></div>
+      <span class="bar-val" style="color:#00e5ff">${g.popularity}</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">经典</span>
+      <div class="bar-track"><div class="bar-fill bar-cls" style="width:${g.classic}%"></div></div>
+      <span class="bar-val" style="color:#ffd740">${g.classic}</span>
+    </div>
+    <div class="bar-row">
+      <span class="bar-label">推荐</span>
+      <div class="bar-track"><div class="bar-fill bar-rec" style="width:${g.recommendation}%"></div></div>
+      <span class="bar-val" style="color:#69f0ae">${g.recommendation}</span>
+    </div>
+  </div>
+</div>`;
+  }).join('');
+  renderPagination(totalPages);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ——— 初始化 ———
