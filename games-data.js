@@ -217,8 +217,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1993",
+    "manufacturer": "Capcom"
   },
   {
     "en": "StreetFighterII'-ChampionEdition(Accelerator!bo",
@@ -472,8 +472,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c1",
-    "year": "",
-    "manufacturer": ""
+    "year": "1990",
+    "manufacturer": "Konami"
   },
   {
     "en": "spsudoluienvrfc",
@@ -489,8 +489,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c1",
-    "year": "",
-    "manufacturer": ""
+    "year": "1990",
+    "manufacturer": "Konami"
   },
   {
     "en": "ContraForce",
@@ -506,8 +506,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c1",
-    "year": "",
-    "manufacturer": ""
+    "year": "1987",
+    "manufacturer": "Konami"
   },
   {
     "en": "hchevrfcb",
@@ -523,8 +523,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c1",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Konami"
   },
   {
     "en": "Air Contra",
@@ -574,8 +574,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c1",
-    "year": "",
-    "manufacturer": ""
+    "year": "1987",
+    "manufacturer": "Konami"
   },
   {
     "en": "Contra Force (USA)",
@@ -625,8 +625,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "SangokushiII:SanJianSheng(Chinesebootlegset1-",
@@ -642,8 +642,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "OrientalLegend(V105-Korea)",
@@ -880,8 +880,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Contra (USA)",
@@ -931,8 +931,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Yokoyama Mitsuteru Sangokushi 2 (Japan)",
@@ -948,8 +948,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1994",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Yokoyama Mitsuteru Sangokushi Bangi - Sugoroku Eiyuu-ki (Japan)",
@@ -1016,8 +1016,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "SangokushiII:SanguoYingxiongZhuan(Chinesebootleg",
@@ -1033,8 +1033,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Super Sangokushi II (Japan)",
@@ -1050,8 +1050,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Sangokushi - Chuugen no Hasha (Japan)",
@@ -1067,8 +1067,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Final Fight 3 (USA)",
@@ -1101,8 +1101,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "2001",
+    "manufacturer": "IGS"
   },
   {
     "en": "Garou-MarkoftheWolves(NGM-2530)",
@@ -1118,8 +1118,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1999",
+    "manufacturer": "SNK"
   },
   {
     "en": "FatalFury-KingofFighters/GarouDensetsu-shuku",
@@ -1135,8 +1135,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1991",
+    "manufacturer": "SNK"
   },
   {
     "en": "Mighty Final Fight (USA)",
@@ -1169,8 +1169,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Chik Bik Ji Jin - Saam Gwok Ji (Asia) (Unl)",
@@ -1186,8 +1186,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Fatal Fury (Europe)",
@@ -1203,8 +1203,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1991",
+    "manufacturer": "SNK"
   },
   {
     "en": "Sangokushi III (Hong Kong)",
@@ -1220,8 +1220,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Super Sangokushi (Japan)",
@@ -1237,8 +1237,8 @@ const GAMES = [
     "saveable": "支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "Jackal(World-8-wayJoystick)",
@@ -1271,8 +1271,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "SaulabiSpirits/JinSaulabiTuHon(Koreanreleaseo",
@@ -1288,8 +1288,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1993",
+    "manufacturer": "SNK"
   },
   {
     "en": "SamuraiShodownIV-Amakusa'sRevenge/SamuraiSpiri",
@@ -1305,8 +1305,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1996",
+    "manufacturer": "SNK"
   },
   {
     "en": "San Guo Zhi - Qun Xiong Zheng Ba (Asia) (Unl)",
@@ -1339,8 +1339,8 @@ const GAMES = [
     "saveable": "支持存档",
     "data_src": "估算数据",
     "cc": "c2",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "Capcom"
   },
   {
     "en": "FatalFury2/GarouDensetsu2-arata-narutatakai(",
@@ -1373,8 +1373,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1991",
+    "manufacturer": "SNK"
   },
   {
     "en": "Garou Densetsu 2 - Aratanaru Tatakai (Japan)",
@@ -1390,8 +1390,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "SNK"
   },
   {
     "en": "Hot Fighting Soul",
@@ -1407,8 +1407,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1993",
+    "manufacturer": "SNK"
   },
   {
     "en": "Knights of the Round (USA)",
@@ -1492,8 +1492,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "2004",
+    "manufacturer": "SNK Playmore"
   },
   {
     "en": "Garou Densetsu - Shukumei no Tatakai (Japan)",
@@ -1509,8 +1509,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1991",
+    "manufacturer": "SNK"
   },
   {
     "en": "SamuraiShodownII/ShinSamuraiSpirits-Haohmaruj",
@@ -1543,8 +1543,8 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "估算数据",
     "cc": "c0",
-    "year": "",
-    "manufacturer": ""
+    "year": "1992",
+    "manufacturer": "SNK"
   },
   {
     "en": "SamuraiShodown/SamuraiSpirits(NGM-045)",
@@ -1628,8 +1628,8 @@ const GAMES = [
     "saveable": "支持存档",
     "data_src": "估算数据",
     "cc": "c9",
-    "year": "",
-    "manufacturer": ""
+    "year": "1986",
+    "manufacturer": "Tecmo"
   },
   {
     "en": "Super Bust-A-Move(US)",
@@ -1679,8 +1679,8 @@ const GAMES = [
     "saveable": "支持存档",
     "data_src": "估算数据",
     "cc": "c9",
-    "year": "",
-    "manufacturer": ""
+    "year": "1996",
+    "manufacturer": "Hudson Soft"
   },
   {
     "en": "BubbleBobbleII(Ver0.0J1993/12/13-prototype)",
@@ -1696,7 +1696,7 @@ const GAMES = [
     "saveable": "不支持存档",
     "data_src": "真实数据",
     "cc": "c3",
-    "year": "",
-    "manufacturer": ""
+    "year": "1993",
+    "manufacturer": "Taito Corporation"
   }
 ];

@@ -293,6 +293,52 @@ footer {
 
 mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px; padding: 0 2px; }
 
+/* ——— 多维筛选面板 ——— */
+.filter-panel { display: flex; flex-direction: column; gap: 6px; }
+.filter-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.filter-dim-label {
+  font-size: 11px; color: var(--text2); min-width: 30px;
+  flex-shrink: 0; font-weight: 600;
+}
+.filter-chip {
+  font-size: 11px; padding: 3px 10px; border-radius: 12px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text2); cursor: pointer; transition: all .15s;
+  white-space: nowrap; font-family: inherit;
+}
+.filter-chip:hover { border-color: var(--accent); color: var(--text); }
+.filter-chip.active {
+  background: var(--accent); border-color: var(--accent);
+  color: #fff; font-weight: 600;
+}
+.filter-chip.chip-complexity-简单.active { background: #00bfa5; border-color: #00bfa5; }
+.filter-chip.chip-complexity-中等.active  { background: #ff8f00; border-color: #ff8f00; }
+.filter-chip.chip-complexity-复杂.active  { background: #e91e63; border-color: #e91e63; }
+.reset-all-btn {
+  margin-left: auto; font-size: 11px; padding: 3px 12px;
+  border-radius: 12px; border: 1px solid rgba(255,64,129,.35);
+  background: rgba(255,64,129,.08); color: #ff4081;
+  cursor: pointer; font-family: inherit; transition: all .15s;
+}
+.reset-all-btn:hover { background: rgba(255,64,129,.2); }
+.active-filter-count {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--accent2); color: #fff;
+  font-size: 10px; font-weight: 700;
+  width: 16px; height: 16px; border-radius: 50%;
+  margin-left: 4px;
+}
+/* ——— 卡片数据标签 ——— */
+.card-data-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 7px; }
+.dtag {
+  font-size: 9px; padding: 2px 6px; border-radius: 6px;
+  font-weight: 600; white-space: nowrap;
+}
+.dtag-real  { background: rgba(105,240,174,.15); color: #69f0ae; border: 1px solid rgba(105,240,174,.3); }
+.dtag-est   { background: rgba(255,215,64,.1);   color: #b8a000; border: 1px solid rgba(255,215,64,.25); }
+.dtag-save  { background: rgba(100,181,246,.12); color: #90caf9; border: 1px solid rgba(100,181,246,.3); }
+.dtag-mfr   { background: rgba(124,77,255,.12); color: #b388ff; border: 1px solid rgba(124,77,255,.28); }
+
 @media (max-width: 600px) {
   #grid { grid-template-columns: 1fr; }
   .ctrl-inner { flex-direction: column; }
@@ -318,15 +364,48 @@ mark { background: rgba(124,77,255,.33); color: var(--text); border-radius: 2px;
       <span class="search-icon">🔍</span>
       <input type="text" id="searchInput" placeholder="搜索游戏名称（中文 / English 均可）…" autocomplete="off" oninput="render()">
     </div>
-    <div class="filter-group">
-      <span class="filter-label">分类：</span>
-      <button class="filter-btn active" data-cat="">全部</button>
-      <button class="filter-btn" data-cat="格斗游戏">🥊 格斗</button>
-      <button class="filter-btn" data-cat="射击游戏">🚀 射击</button>
-      <button class="filter-btn" data-cat="动作冒险">⚔️ 动作</button>
-      <button class="filter-btn" data-cat="平台跳跃">🦘 跳跃</button>
-      <button class="filter-btn" data-cat="益智游戏">🧩 益智</button>
-      <button class="filter-btn" data-cat="体育游戏">⚽ 体育</button>
+    <div class="filter-panel">
+      <div class="filter-row">
+        <span class="filter-dim-label">类型</span>
+        <button class="filter-chip active" data-dim="cat" data-val="">全部</button>
+        <button class="filter-chip" data-dim="cat" data-val="格斗游戏">🥊 格斗</button>
+        <button class="filter-chip" data-dim="cat" data-val="射击游戏">🚀 射击</button>
+        <button class="filter-chip" data-dim="cat" data-val="动作冒险">⚔️ 动作</button>
+        <button class="filter-chip" data-dim="cat" data-val="平台跳跃">🦘 跳跃</button>
+        <button class="filter-chip" data-dim="cat" data-val="益智游戏">🧩 益智</button>
+        <button class="filter-chip" data-dim="cat" data-val="其他游戏">🕹️ 其他</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-dim-label">难度</span>
+        <button class="filter-chip active" data-dim="complexity" data-val="">全部</button>
+        <button class="filter-chip chip-complexity-简单" data-dim="complexity" data-val="简单">简单</button>
+        <button class="filter-chip chip-complexity-中等" data-dim="complexity" data-val="中等">中等</button>
+        <button class="filter-chip chip-complexity-复杂" data-dim="complexity" data-val="复杂">复杂</button>
+        <span class="filter-dim-label" style="margin-left:12px">玩家</span>
+        <button class="filter-chip active" data-dim="players" data-val="">全部</button>
+        <button class="filter-chip" data-dim="players" data-val="单人">单人</button>
+        <button class="filter-chip" data-dim="players" data-val="双人对战">👥 对战</button>
+        <button class="filter-chip" data-dim="players" data-val="双人合作">🤝 合作</button>
+        <button class="filter-chip" data-dim="players" data-val="多人">👨‍👩‍👧 多人</button>
+      </div>
+      <div class="filter-row">
+        <span class="filter-dim-label">厂商</span>
+        <button class="filter-chip active" data-dim="mfr" data-val="">全部</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Capcom">Capcom</button>
+        <button class="filter-chip" data-dim="mfr" data-val="SNK">SNK</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Konami">Konami</button>
+        <button class="filter-chip" data-dim="mfr" data-val="IGS">IGS</button>
+        <button class="filter-chip" data-dim="mfr" data-val="Taito">Taito</button>
+        <span class="filter-dim-label" style="margin-left:12px">存档</span>
+        <button class="filter-chip active" data-dim="saveable" data-val="">全部</button>
+        <button class="filter-chip" data-dim="saveable" data-val="支持存档">💾 支持</button>
+        <button class="filter-chip" data-dim="saveable" data-val="不支持存档">✗ 不支持</button>
+        <span class="filter-dim-label" style="margin-left:12px">数据</span>
+        <button class="filter-chip active" data-dim="dataSrc" data-val="">全部</button>
+        <button class="filter-chip" data-dim="dataSrc" data-val="真实数据">✅ 真实</button>
+        <button class="filter-chip" data-dim="dataSrc" data-val="估算数据">📊 估算</button>
+        <button class="reset-all-btn" onclick="resetFilters()">↺ 重置筛选</button>
+      </div>
     </div>
     <div class="result-info">显示 <span id="showCount">0</span> / <span id="totalCount">100</span> 款</div>
   </div>
@@ -372,10 +451,8 @@ const ROM_MAP = {
 };
 
 function catEmoji(cat) {
-  return {
-    '格斗游戏':'🥊','射击游戏':'🚀','动作冒险':'⚔️',
-    '平台跳跃':'🦘','益智游戏':'🧩','体育游戏':'⚽','其他游戏':'🕹️'
-  }[cat] || '🎮';
+  return {'格斗游戏':'🥊','射击游戏':'🚀','动作冒险':'⚔️',
+    '平台跳跃':'🦘','益智游戏':'🧩','体育游戏':'⚽','其他游戏':'🕹️'}[cat] || '🎮';
 }
 
 // ——— 工具函数 ———
@@ -383,37 +460,53 @@ function stars(score) {
   const full = Math.round(score / 20);
   return '★'.repeat(full) + '☆'.repeat(5 - full);
 }
-
 function rankClass(r) {
-  if (r === 1) return 'rank-1';
-  if (r === 2) return 'rank-2';
-  if (r === 3) return 'rank-3';
-  return 'rank-other';
+  return r === 1 ? 'rank-1' : r === 2 ? 'rank-2' : r === 3 ? 'rank-3' : 'rank-other';
 }
-
 function tagClass(cat) {
   const known = ['格斗游戏','射击游戏','动作冒险','平台跳跃','赛车游戏','益智游戏','体育游戏'];
   return 'tag ' + (known.includes(cat) ? 'tag-' + cat : 'tag-other');
 }
-
 function highlight(text, q) {
   if (!q) return text;
   const re = new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
   return text.replace(re, m => '<mark>' + m + '</mark>');
 }
+function mfrShort(mfr) {
+  if (!mfr) return '';
+  if (mfr.includes('Capcom')) return 'Capcom';
+  if (mfr.includes('SNK')) return 'SNK';
+  if (mfr.includes('Konami')) return 'Konami';
+  if (mfr.includes('IGS')) return 'IGS';
+  if (mfr.includes('Taito')) return 'Taito';
+  if (mfr.includes('Eolith') || mfr.includes('Playmore')) return 'SNK';
+  if (mfr.includes('Hudson')) return 'Hudson';
+  if (mfr.includes('Tecmo')) return 'Tecmo';
+  return mfr.split('/')[0].trim();
+}
 
-// ——— 状态 ———
-let currentCat = '';
+// ——— 多维筛选状态 ———
+const F = { cat:'', complexity:'', players:'', mfr:'', saveable:'', dataSrc:'' };
 
-// ——— 筛选按钮 ———
-document.querySelectorAll('.filter-btn[data-cat]').forEach(btn => {
+// ——— 筛选芯片点击（统一处理所有维度）———
+document.querySelectorAll('.filter-chip[data-dim]').forEach(btn => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn[data-cat]').forEach(b => b.classList.remove('active'));
+    const dim = btn.dataset.dim;
+    // 同一维度：取消激活其他，激活当前
+    document.querySelectorAll(`.filter-chip[data-dim="${dim}"]`).forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    currentCat = btn.dataset.cat;
+    F[dim] = btn.dataset.val;
     render();
   });
 });
+
+function resetFilters() {
+  Object.keys(F).forEach(k => F[k] = '');
+  document.querySelectorAll('.filter-chip[data-dim]').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.val === '');
+  });
+  render();
+}
 
 // ——— 渲染 ———
 function render() {
@@ -422,9 +515,17 @@ function render() {
   const noResults = document.getElementById('noResults');
 
   const filtered = GAMES.filter(g => {
-    const matchCat = !currentCat || g.category === currentCat;
-    const matchQ   = !q || g.zh.toLowerCase().includes(q) || g.en.toLowerCase().includes(q);
-    return matchCat && matchQ;
+    if (F.cat && g.category !== F.cat) return false;
+    if (F.complexity && g.complexity !== F.complexity) return false;
+    if (F.players && g.players !== F.players) return false;
+    if (F.saveable && g.saveable !== F.saveable) return false;
+    if (F.dataSrc && g.data_src !== F.dataSrc) return false;
+    if (F.mfr) {
+      const m = g.manufacturer || '';
+      if (!m.toLowerCase().includes(F.mfr.toLowerCase())) return false;
+    }
+    if (q && !g.zh.toLowerCase().includes(q) && !g.en.toLowerCase().includes(q)) return false;
+    return true;
   });
 
   document.getElementById('showCount').textContent = filtered.length;
@@ -441,6 +542,8 @@ function render() {
     const tc = tagClass(g.category);
     const zhH = highlight(g.zh, q);
     const enH = highlight(g.en, q);
+    const isReal = g.data_src === '真实数据';
+    const ms = mfrShort(g.manufacturer);
 
     return `
 <div class="card">
@@ -459,6 +562,11 @@ function render() {
   <div class="game-meta">
     ${g.year ? `<span class="year">📅 ${g.year}</span>` : ''}
     ${g.manufacturer ? `<span>${g.manufacturer}</span>` : ''}
+  </div>
+  <div class="card-data-tags">
+    <span class="dtag ${isReal ? 'dtag-real' : 'dtag-est'}">${isReal ? '✅ 真实数据' : '📊 估算数据'}</span>
+    ${g.saveable === '支持存档' ? '<span class="dtag dtag-save">💾 支持存档</span>' : ''}
+    ${ms ? `<span class="dtag dtag-mfr">${ms}</span>` : ''}
   </div>
   <div class="score-row">
     <div>
